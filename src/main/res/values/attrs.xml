@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="year" format="string" />
+    <!-- Text Style -->
+    <attr name="componentLabelSize" format="string" />
+    <attr name="componentSize" format="string" />
+    <attr name="fontFamily" format="string" />
+    <attr name="size" format="string" />
+    <attr name="weight" format="enum">
+        <enum name="light" value="0" />
+        <enum name="normal" value="1" />
+        <enum name="bold" value="2" />
+    </attr>
+    <!-- Shape Style -->
+    <attr name="componentBorderWidth" format="string" />
+    <attr name="componentCornerRadius" format="string" />
+    <!-- Color Style -->
+    <attr name="colorBackground" format="color" />
+    <attr name="componentBackground" format="color" />
+    <attr name="componentBorder" format="color" />
+    <attr name="componentPlaceholderText" format="color" />
+    <attr name="componentText" format="color" />
+    <attr name="danger" format="color" />
+    <attr name="primary" format="color" />
+    <attr name="text" format="color" />
+    <!-- Button Style -->
+    <attr name="colorActiveBackground" format="color" />
+    <attr name="colorActiveBorder" format="color" />
+    <attr name="colorActiveText" format="color" />
+    <attr name="colorDisabledBackground" format="color" />
+    <attr name="colorDisabledBorder" format="color" />
+    <attr name="colorDisabledText" format="color" />
+    <attr name="colorLoadingBackground" format="color" />
+    <attr name="colorLoadingBorder" format="color" />
+    <attr name="colorLoadingText" format="color" />
+    <attr name="shapeBorderWidth" format="string" />
+    <attr name="shapeCornerRadius" format="string" />
+    <attr name="textFontFamily" format="string" />
+    <attr name="textSize" format="string" />
+    <attr name="textWeight" format="enum">
+        <enum name="light" value="0" />
+        <enum name="normal" value="1" />
+        <enum name="bold" value="2" />
+    </attr>
+    <!-- Debug Mode -->
+    <attr name="debug" format="boolean" />
+    <!-- Custom content -->
+    <attr name="submitButton" format="string" />
+    <attr name="loadingButton" format="string" />
+    <attr name="loadingPrompt" format="string" />
+    <attr name="errorMessage" format="string" />
+    <!-- Access Token -->
+    <attr name="accessToken" format="string"/>
+
+    <declare-styleable name="TaxDocument">
+        <attr name="year" />
+        <!-- Text Style -->
+        <attr name="componentLabelSize" />
+        <attr name="componentSize" />
+        <attr name="fontFamily" />
+        <attr name="size" />
+        <attr name="weight" />
+        <!-- Shape Style -->
+        <attr name="componentBorderWidth" />
+        <attr name="componentCornerRadius" />
+        <!-- Color Style -->
+        <attr name="colorBackground" />
+        <attr name="componentBackground" />
+        <attr name="componentBorder" />
+        <attr name="componentPlaceholderText" />
+        <attr name="componentText" />
+        <attr name="danger" />
+        <attr name="primary" />
+        <attr name="text" />
+        <!-- Button Style -->
+        <attr name="colorActiveBackground" />
+        <attr name="colorActiveBorder" />
+        <attr name="colorActiveText" />
+        <attr name="colorDisabledBackground" />
+        <attr name="colorDisabledBorder" />
+        <attr name="colorDisabledText" />
+        <attr name="colorLoadingBackground" />
+        <attr name="colorLoadingBorder" />
+        <attr name="colorLoadingText" />
+        <attr name="shapeBorderWidth" />
+        <attr name="shapeCornerRadius" />
+        <attr name="textFontFamily" />
+        <attr name="textSize" />
+        <attr name="textWeight" />
+        <!-- Debug Mode -->
+        <attr name="debug" />
+        <!-- Custom content -->
+        <attr name="submitButton" />
+        <attr name="loadingButton" />
+        <attr name="loadingPrompt" />
+        <attr name="errorMessage" />
+        <!-- Access Token -->
+        <attr name="accessToken"/>
+    </declare-styleable>
+    <declare-styleable name="TaxProfile">
+        <attr name="year" />
+        <!-- Text Style -->
+        <attr name="componentLabelSize" />
+        <attr name="componentSize" />
+        <attr name="fontFamily" />
+        <attr name="size" />
+        <attr name="weight" />
+
+        <!-- Shape Style -->
+        <attr name="componentBorderWidth" />
+        <attr name="componentCornerRadius" />
+        <!-- Color Style -->
+        <attr name="colorBackground" />
+        <attr name="componentBackground" />
+        <attr name="componentBorder" />
+        <attr name="componentPlaceholderText" />
+        <attr name="componentText" />
+        <attr name="danger" />
+        <attr name="primary" />
+        <attr name="text" />
+        <!-- Button Style -->
+        <attr name="colorActiveBackground" />
+        <attr name="colorActiveBorder" />
+        <attr name="colorActiveText" />
+        <attr name="colorDisabledBackground" />
+        <attr name="colorDisabledBorder" />
+        <attr name="colorDisabledText" />
+        <attr name="colorLoadingBackground" />
+        <attr name="colorLoadingBorder" />
+        <attr name="colorLoadingText" />
+        <attr name="shapeBorderWidth" />
+        <attr name="shapeCornerRadius" />
+        <attr name="textFontFamily" />
+        <attr name="textSize" />
+        <attr name="textWeight" />
+        <!-- Debug Mode -->
+        <attr name="debug" />
+        <!-- Custom content -->
+        <attr name="submitButton" />
+        <attr name="loadingButton" />
+        <attr name="loadingPrompt" />
+        <attr name="errorMessage" />
+        <!-- Access Token -->
+        <attr name="accessToken"/>
+
+    </declare-styleable>
+</resources>
