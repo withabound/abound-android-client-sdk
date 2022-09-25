@@ -1,5 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.7.20-RC'
+    ext.core_version = '1.7.0'
 }
 plugins {
     id 'com.android.library'
@@ -12,11 +13,11 @@ apply plugin: 'kotlin-android'
 group = project.property('GROUP')
 version = "1.0.0"
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         minSdk 21
-        targetSdk 32
+        targetSdk 31
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -38,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation "androidx.core:core-ktx:$core_version"
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     testImplementation 'junit:junit:4.13.2'
@@ -47,6 +48,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
+    google()
     mavenCentral()
 }
 
