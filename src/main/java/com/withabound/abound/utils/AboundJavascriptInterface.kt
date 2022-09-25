@@ -1,4 +1,4 @@
-package com.abound.abound.utils
+package com.withabound.abound.utils
 
 
 interface AboundJavascriptInterface {

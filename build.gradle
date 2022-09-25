@@ -55,8 +55,13 @@ repositories {
  */
 allprojects {
     plugins.withId("com.vanniktech.maven.publish.base") {
+        group = "com.withabound.abound"
+        version = "1.0.0"
         mavenPublishing {
             publishToMavenCentral("DEFAULT")
+            signAllPublications()
+
         }
+
     }
 }

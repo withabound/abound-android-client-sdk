@@ -1,17 +1,18 @@
-package com.abound.abound
+package com.withabound.abound
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.webkit.WebView
-import com.abound.abound.utils.AboundJavascriptInterface
-import com.abound.abound.utils.Utils
-import com.abound.abound.utils.Utils.Companion.toWeight
-import com.abound.abound.utils.toHex
+import com.withabound.abound.utils.AboundJavascriptInterface
+import com.withabound.abound.utils.Utils
+import com.withabound.abound.utils.Utils.Companion.toWeight
+import com.withabound.abound.utils.toHex
+
 import java.util.*
 
-class TaxProfile @JvmOverloads constructor(
+class TaxDocument @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
@@ -60,107 +61,107 @@ class TaxProfile @JvmOverloads constructor(
         isFocusable = true
         isFocusableInTouchMode = true
         addJavascriptInterface(this, "AboundJavascriptInterface")
-
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TaxProfile)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TaxDocument)
         val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-        year = typedArray.getString(R.styleable.TaxProfile_year) ?: currentYear.toString()
+        year = typedArray.getString(R.styleable.TaxDocument_year) ?: currentYear.toString()
         /* Text Properties */
         componentLabelSize =
-            typedArray.getString(R.styleable.TaxProfile_componentLabelSize) ?: "14px"
-        componentSize = typedArray.getString(R.styleable.TaxProfile_componentSize) ?: "14px"
-        fontFamily = typedArray.getString(R.styleable.TaxProfile_fontFamily) ?: "Arial"
-        size = typedArray.getString(R.styleable.TaxProfile_size) ?: "12px"
-        weight = toWeight(typedArray.getInt(R.styleable.TaxProfile_weight, 1))
+            typedArray.getString(R.styleable.TaxDocument_componentLabelSize) ?: "14px"
+        componentSize = typedArray.getString(R.styleable.TaxDocument_componentSize) ?: "14px"
+        fontFamily = typedArray.getString(R.styleable.TaxDocument_fontFamily) ?: "Arial"
+        size = typedArray.getString(R.styleable.TaxDocument_size) ?: "12px"
+        weight = toWeight(typedArray.getInt(R.styleable.TaxDocument_weight, 1))
         /* Shape Properties */
         componentBorderWidth =
-            typedArray.getString(R.styleable.TaxProfile_componentBorderWidth) ?: "1px"
+            typedArray.getString(R.styleable.TaxDocument_componentBorderWidth) ?: "1px"
         componentCornerRadius =
-            typedArray.getString(R.styleable.TaxProfile_componentCornerRadius) ?: "8px"
+            typedArray.getString(R.styleable.TaxDocument_componentCornerRadius) ?: "8px"
         /* Color Properties */
         colorBackground = typedArray.getColor(
-            R.styleable.TaxProfile_colorBackground,
+            R.styleable.TaxDocument_colorBackground,
             Color.parseColor("#FFFFFF")
         )
         componentBackground = typedArray.getColor(
-            R.styleable.TaxProfile_componentBackground,
+            R.styleable.TaxDocument_componentBackground,
             Color.parseColor("#FFFFFF")
         )
         componentBorder = typedArray.getColor(
-            R.styleable.TaxProfile_componentBorder,
+            R.styleable.TaxDocument_componentBorder,
             Color.parseColor("#C5C5C5")
         )
         componentPlaceholderText =
             typedArray.getColor(
-                R.styleable.TaxProfile_componentPlaceholderText,
+                R.styleable.TaxDocument_componentPlaceholderText,
                 Color.parseColor("#C5C5C5")
             )
         componentText =
-            typedArray.getColor(R.styleable.TaxProfile_componentText, Color.parseColor("#000000"))
-        danger = typedArray.getColor(R.styleable.TaxProfile_danger, Color.parseColor("#BC0101"))
-        primary = typedArray.getColor(R.styleable.TaxProfile_primary, Color.parseColor("#655BEF"))
-        text = typedArray.getColor(R.styleable.TaxProfile_text, Color.parseColor("#000000"))
+            typedArray.getColor(R.styleable.TaxDocument_componentText, Color.parseColor("#000000"))
+        danger = typedArray.getColor(R.styleable.TaxDocument_danger, Color.parseColor("#BC0101"))
+        primary = typedArray.getColor(R.styleable.TaxDocument_primary, Color.parseColor("#655BEF"))
+        text = typedArray.getColor(R.styleable.TaxDocument_text, Color.parseColor("#000000"))
         /*  Debug Mode */
-        debug = typedArray.getBoolean(R.styleable.TaxProfile_debug, false)
+        debug = typedArray.getBoolean(R.styleable.TaxDocument_debug, false)
         /* Custom texts */
-        submitButton = typedArray.getString(R.styleable.TaxProfile_submitButton) ?: "Submit Button"
+        submitButton = typedArray.getString(R.styleable.TaxDocument_submitButton) ?: "Submit Button"
         loadingButton =
-            typedArray.getString(R.styleable.TaxProfile_loadingButton) ?: "Loading Button"
+            typedArray.getString(R.styleable.TaxDocument_loadingButton) ?: "Loading Button"
         loadingPrompt =
-            typedArray.getString(R.styleable.TaxProfile_loadingPrompt) ?: "Loading Prompt..."
+            typedArray.getString(R.styleable.TaxDocument_loadingPrompt) ?: "Loading Prompt..."
         errorMessage =
-            typedArray.getString(R.styleable.TaxProfile_errorMessage) ?: "Something went wrong"
+            typedArray.getString(R.styleable.TaxDocument_errorMessage) ?: "Something went wrong"
         /* Button Styles */
         colorActiveBackground = typedArray.getColor(
-            R.styleable.TaxProfile_colorActiveBackground,
+            R.styleable.TaxDocument_colorActiveBackground,
             Color.parseColor("#000000")
         )
         colorActiveBorder = typedArray.getColor(
-            R.styleable.TaxProfile_colorActiveBorder,
+            R.styleable.TaxDocument_colorActiveBorder,
             Color.parseColor("#000000")
         )
         colorActiveText = typedArray.getColor(
-            R.styleable.TaxProfile_colorActiveText,
+            R.styleable.TaxDocument_colorActiveText,
             Color.parseColor("#FFFFFF")
         )
         colorDisabledBackground = typedArray.getColor(
-            R.styleable.TaxProfile_colorDisabledBackground,
+            R.styleable.TaxDocument_colorDisabledBackground,
             Color.parseColor("#C5C5C5")
         )
         colorDisabledBorder = typedArray.getColor(
-            R.styleable.TaxProfile_colorDisabledBorder,
+            R.styleable.TaxDocument_colorDisabledBorder,
             Color.parseColor("#C5C5C5")
         )
         colorDisabledText = typedArray.getColor(
-            R.styleable.TaxProfile_colorDisabledText,
+            R.styleable.TaxDocument_colorDisabledText,
             Color.parseColor("#FFFFFF")
         )
         colorLoadingBackground = typedArray.getColor(
-            R.styleable.TaxProfile_colorLoadingBackground,
+            R.styleable.TaxDocument_colorLoadingBackground,
             Color.parseColor("#C5C5C5")
         )
         colorLoadingBorder = typedArray.getColor(
-            R.styleable.TaxProfile_colorLoadingBorder,
+            R.styleable.TaxDocument_colorLoadingBorder,
             Color.parseColor("#C5C5C5")
         )
         colorLoadingText = typedArray.getColor(
-            R.styleable.TaxProfile_colorLoadingText,
+            R.styleable.TaxDocument_colorLoadingText,
             Color.parseColor("#FFFFFF")
         )
 
         shapeBorderWidth =
-            typedArray.getString(R.styleable.TaxProfile_shapeBorderWidth) ?: "1px"
+            typedArray.getString(R.styleable.TaxDocument_shapeBorderWidth) ?: "1px"
         shapeCornerRadius =
-            typedArray.getString(R.styleable.TaxProfile_shapeCornerRadius) ?: "8px"
+            typedArray.getString(R.styleable.TaxDocument_shapeCornerRadius) ?: "8px"
         textFontFamily =
-            typedArray.getString(R.styleable.TaxProfile_textFontFamily) ?: "Arial"
+            typedArray.getString(R.styleable.TaxDocument_textFontFamily) ?: "Arial"
         textSize =
-            typedArray.getString(R.styleable.TaxProfile_textSize) ?: "16px"
-        textWeight = toWeight(typedArray.getInt(R.styleable.TaxProfile_textWeight, 1))
+            typedArray.getString(R.styleable.TaxDocument_textSize) ?: "16px"
+        textWeight = toWeight(typedArray.getInt(R.styleable.TaxDocument_textWeight, 1))
         accessToken =
-            typedArray.getString(R.styleable.TaxProfile_accessToken)
+            typedArray.getString(R.styleable.TaxDocument_accessToken)
                 ?: "accessToken_testeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfaWQiOiJhcHBJZF90ZXN0NDhlN2VhYTMxNzVhNjYzNTRlMDA2MjY1NDJkMiIsImNyZWF0ZWRfdGltZXN0YW1wIjoxNjU1MDk2NDAwMDAwLCJlbnZpcm9ubWVudCI6Imh0dHBzOi8vc2FuZGJveC1hcGkud2l0aGFib3VuZC5jb20vdjIiLCJleHBpcmF0aW9uX3RpbWVzdGFtcCI6MzI1MDM3MDE2MDAwMDAsInN0YXR1cyI6IkFjdGl2ZSIsInVzZXJfaWQiOiJ1c2VySWRfdGVzdDI0YjA1ZDc2MWZmNThiNTkzMWJkMDc3NzhjNjdiNGU4MThlNCIsImlhdCI6MTY1NTEzMDMxM30.dOUIyxTRV0QDmrFiy-GoyhKc8qru3pymIcPS5cGTaNk"
         typedArray.recycle()
     }
+
 
     @SuppressLint("SetJavaScriptEnabled")
     fun load() {
@@ -205,7 +206,7 @@ class TaxProfile @JvmOverloads constructor(
             textSize,
             textWeight,
         )
-        return resources.assets.open("tax_profile.html").bufferedReader().use { it.readText() }
+        return resources.assets.open("tax_document.html").bufferedReader().use { it.readText() }
             .replace("{debugMode}", Utils.getDebugMode(debug))
             .replace("{accessToken}", accessToken)
             .replace(

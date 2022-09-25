@@ -1,4 +1,4 @@
-package com.abound.abound
+package com.withabound.abound
 
 import org.junit.Test
 
