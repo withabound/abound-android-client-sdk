@@ -21,7 +21,11 @@ You may also add from the this repository.
 ```gradle
 implementation project(path: ':abound-android-client-sdk')
 ```
+4. Add the internet permissions to your manifest
 
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
 <br>
 
 ### Getting Started
@@ -124,12 +128,12 @@ and handle the success and error callbacks inside the code
 
 ```kotlin
  val taxProfile = findViewById<TaxProfile>(R.id.taxDocument)
-        taxProfile.onSuccess {
-            android.util.Log.w("SuccessFullcallback", "onSuccess")
-        }
-        taxProfile.onError {
-            android.util.Log.w("ErrorCallback", it)
-        }
+taxProfile.onSuccess {
+    android.util.Log.w("SuccessFullcallback", "onSuccess")
+}
+taxProfile.onError {
+    android.util.Log.w("ErrorCallback", it)
+}
 ```
 
 For TaxDocuments we can pass the year inside the xml with the app:namespace
