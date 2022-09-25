@@ -54,9 +54,9 @@ repositories {
  * Publishing to Maven Central. See https://github.com/vanniktech/gradle-maven-publish-plugin
  */
 allprojects {
-    plugins.withId("com.vanniktech.maven.publish") {
-        mavenPublish {
-            sonatypeHost = "S01"
+    plugins.withId("com.vanniktech.maven.publish.base") {
+        mavenPublishing {
+            publishToMavenCentral("DEFAULT")
         }
     }
 }
