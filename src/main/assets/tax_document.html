@@ -15,10 +15,10 @@
 <div id="abound-ui-wrapper"></div>
 <script>
       function onSuccess() {
-        window.webkit.messageHandlers.onSuccess.postMessage("");
+        AboundJavascriptInterface.onSuccessEvent();
       }
       function onError(error) {
-        window.webkit.messageHandlers.onError.postMessage(error);
+        AboundJavascriptInterface.onErrorEvent(error);
       }
 
 </script>

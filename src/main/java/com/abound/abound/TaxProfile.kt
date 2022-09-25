@@ -1,9 +1,11 @@
 package com.abound.abound
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.webkit.WebView
+import com.abound.abound.utils.AboundJavascriptInterface
 import com.abound.abound.utils.Utils
 import com.abound.abound.utils.Utils.Companion.toWeight
 import com.abound.abound.utils.toHex
@@ -13,7 +15,7 @@ class TaxProfile @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
-) : WebView(context, attrs, defStyle) {
+) : WebView(context, attrs, defStyle), AboundJavascriptInterface {
     private val year: String
     private val componentLabelSize: String
     private val componentSize: String
@@ -49,11 +51,15 @@ class TaxProfile @JvmOverloads constructor(
     private val textFontFamily: String
     private val textSize: String
     private val textWeight: String
-    private val accessToken: String
+    private var accessToken: String
+    private var onError: ((text: String) -> Unit)? = null
+    private var onSuccess: (() -> Unit)? = null
 
     init {
         setWebContentsDebuggingEnabled(true)
-
+        isFocusable = true
+        isFocusableInTouchMode = true
+        addJavascriptInterface(this, "AboundJavascriptInterface")
 
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TaxProfile)
         val currentYear = Calendar.getInstance().get(Calendar.YEAR)
@@ -156,8 +162,8 @@ class TaxProfile @JvmOverloads constructor(
         typedArray.recycle()
     }
 
-
-    fun loadAboundPage() {
+    @SuppressLint("SetJavaScriptEnabled")
+    fun load() {
         settings.javaScriptEnabled = true
         loadDataWithBaseURL(
             "https://js.withabound.com",
@@ -169,7 +175,8 @@ class TaxProfile @JvmOverloads constructor(
     }
 
     private fun loadAndParseHtml(): String {
-        val textTheme = Utils.getTextTheme(componentLabelSize, componentSize, fontFamily, size, weight)
+        val textTheme =
+            Utils.getTextTheme(componentLabelSize, componentSize, fontFamily, size, weight)
         val colorTheme = Utils.getColorTheme(
             colorBackground.toHex(),
             componentBackground.toHex(),
@@ -214,5 +221,26 @@ class TaxProfile @JvmOverloads constructor(
             .replace("{year}", year)
     }
 
+    @android.webkit.JavascriptInterface
+    override fun onSuccessEvent() {
+        onSuccess?.invoke()
+    }
+
+    @android.webkit.JavascriptInterface
+    override fun onErrorEvent(text: String) {
+        onError?.invoke(text)
+    }
+
+    fun onError(onError: (input: String) -> Unit) {
+        this.onError = onError
+    }
+
+    fun onSuccess(onSuccess: () -> Unit) {
+        this.onSuccess = onSuccess
+    }
+
+    fun setAccessToken(accessToken: String) {
+        this.accessToken = accessToken
+    }
 }
 
