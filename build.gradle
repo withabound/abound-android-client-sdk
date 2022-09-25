@@ -1,8 +1,11 @@
+buildscript {
+    ext.kotlin_version = '1.7.20-RC'
+}
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     // https://github.com/vanniktech/gradle-maven-publish-plugin
-    id 'com.vanniktech.maven.publish' version '0.18.0'
+    id 'com.vanniktech.maven.publish' version '0.22.0'
 }
 apply plugin: 'kotlin-android'
 // from gradle.properties
