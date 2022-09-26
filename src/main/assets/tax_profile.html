@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=yes" />
+</head>
+<body>
+<div id="abound-ui-wrapper"></div>
+<style>
+      .abound-tax-profile {
+        width: auto;
+      }
+      input, select{
+        height:  inherit !important;
+      }
+    </style>
+<script>
+      function onSuccess() {
+        AboundJavascriptInterface.onSuccessEvent();
+      }
+      function onError(error) {
+        AboundJavascriptInterface.onErrorEvent(error);
+      }
+    </script>
+<script type="module">
+      import Abound from "https://js.withabound.com/latest/abound-client-sdk.js";
+      // debug mode
+      {debugMode}
+      // Access Token
+      const abound = new Abound({
+        accessToken: "{accessToken}",
+      });
+      // Theme
+      {theme}
+      // Custom Content
+      {customContent}
+      function onSuccessOrError (){
+                      if(debugMode){
+                          const eins = document.getElementsByName("ein")
+                          if(eins.length>0){
+                              const ein = eins[0].value.replace("-","");
+                              switch(ein){
+                                  case "999999999":
+                                      onError("unverified");
+                                  break;
+                                  case "333333333":
+                                      onError("mismatch");
+                                  break;
+                                  case "111111111":
+                                      onError("error");
+                                  break;
+                                  case "555555555":
+                                      onError("lockedOut");
+                                  break;
+                                  default:
+                                      onSuccess();
+                              }
+                          }
+                      }else{
+                          onSuccess();
+                      }
+
+                  }
+      abound.renderTaxProfile({
+        targetId: "abound-ui-wrapper",
+        theme: customTheme,
+        onSubmitSuccess: onSuccessOrError,
+        onSubmitError: onError,
+        content: customContent,
+      });
+    </script>
+</body>
+</html>

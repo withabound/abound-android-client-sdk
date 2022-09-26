@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=yes"/>
+</head>
+<body>
+<style>
+            .abound-tax-documents {
+                width: auto;
+            }
+            input, select{
+                height:  inherit !important;
+            }
+
+</style>
+<div id="abound-ui-wrapper"></div>
+<script>
+      function onSuccess() {
+        AboundJavascriptInterface.onSuccessEvent();
+      }
+      function onError(error) {
+        AboundJavascriptInterface.onErrorEvent(error);
+      }
+
+</script>
+<script type="module">
+            import Abound from "https://js.withabound.com/latest/abound-client-sdk.js";
+            // debug mode
+            {debugMode}
+            // Access Token
+            const abound = new Abound({
+                accessToken: "{accessToken}",
+            });
+            // Theme
+           {theme}
+            // Custom Content
+            {customContent}
+            //Year
+            abound.renderTaxDocuments({
+               year: "{year}",
+               targetId: "abound-ui-wrapper",
+               theme: customTheme,
+               onSubmitError: onError,
+               onSubmitSuccess: onSuccess,
+            });
+
+</script>
+</body>
+</html>
