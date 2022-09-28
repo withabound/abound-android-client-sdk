@@ -136,7 +136,7 @@ class Utils {
                         activeText: "{activeText}",
                         disabledBackground: "{disabledBackground}",
                         disabledBorder: "{disabledBorder}",
-                        disabledText: "{disabledText",
+                        disabledText: "{disabledText}",
                         loadingBackground: "{loadingBackground}",
                         loadingBorder: "{loadingBorder}",
                         loadingText: "{loadingText}",
