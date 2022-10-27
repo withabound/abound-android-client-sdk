@@ -17,7 +17,7 @@ class TaxDocument @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyle: Int = 0
 ) : WebView(context, attrs, defStyle), AboundJavascriptInterface {
-    private val year: String
+    var year: String private set
     private val componentLabelSize: String
     private val componentSize: String
     private val fontFamily: String
@@ -52,7 +52,7 @@ class TaxDocument @JvmOverloads constructor(
     private val textFontFamily: String
     private val textSize: String
     private val textWeight: String
-    private var accessToken: String
+    var accessToken: String private set
     private var onError: ((text: String) -> Unit)? = null
     private var onSuccess: (() -> Unit)? = null
 
@@ -242,6 +242,10 @@ class TaxDocument @JvmOverloads constructor(
 
     fun setAccessToken(accessToken: String) {
         this.accessToken = accessToken
+    }
+
+    fun setYear(year: String) {
+        this.year = year
     }
 }
 
