@@ -109,7 +109,7 @@ using the app namespace
         app:errorMessage="Something went wrong"/>
 ```
 
-and handle the success and error callbacks inside the code
+Handle the success and error callbacks inside the code
 
 ```kotlin
  val taxProfile = findViewById<TaxProfile>(R.id.taxDocument)
