@@ -23,19 +23,16 @@
 
 </script>
 <script type="module">
-            import Abound from "https://js.withabound.com/latest/abound-client-sdk.js";
-            // debug mode
-            {debugMode}
-            // Access Token
-            const abound = new Abound({
-                accessToken: "{accessToken}",
-            });
+            import { renderTaxDocuments } from "https://js.withabound.com/latest-v2-minor/abound-client-sdk.js";
+
             // Theme
-           {theme}
+            {theme}
+            
             // Custom Content
             {customContent}
-            //Year
-            abound.renderTaxDocuments({
+
+            renderTaxDocuments({
+               accessToken: "{accessToken}",
                year: "{year}",
                targetId: "abound-ui-wrapper",
                theme: customTheme,
